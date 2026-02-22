@@ -63,4 +63,5 @@ jobs:
       - name: Run smoke test
         run: |
           export PATH="/opt/puppetlabs/bin:$PATH"
+          ln -s "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../sudo"
           puppet apply --noop --modulepath="$GITHUB_WORKSPACE/.." tests/init.pp
