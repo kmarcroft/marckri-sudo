@@ -4,9 +4,9 @@
   "author": "Kristian Marcroft",
   "summary": "Manage sudoers",
   "license": "Apache-2.0",
-  "source": "https://github.com/kmarcroft/puppet-sudo",
-  "project_page": "https://github.com/kmarcroft/puppet-sudo",
-  "issues_url": "https://github.com/kmarcroft/puppet-sudo/issues",
+  "source": "https://github.com/kmarcroft/marckri-sudo",
+  "project_page": "https://github.com/kmarcroft/marckri-sudo",
+  "issues_url": "https://github.com/kmarcroft/marckri-sudo/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
