@@ -91,14 +91,7 @@ sudo::sudoers:
 
 ## Development
 
-### Run syntax, lint and unit tests
-
-```sh
-bundle install
-bundle exec rake syntax lint spec
-```
-
-### Using PDK
+### Run validation and unit tests
 
 ```sh
 pdk validate
