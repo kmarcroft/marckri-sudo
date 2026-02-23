@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.2.1] - 2026-02-23
+
+### Changed
+
+- Renamed project from puppet-sudo to marckri-sudo
+- Fixed CI build task (`module:build`)
+- Added GitHub Release creation on version tags
+
 ## [3.2.0] - 2026-02-23
 
 ### Changed
