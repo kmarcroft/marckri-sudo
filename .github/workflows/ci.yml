@@ -7,6 +7,9 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   validate:
     name: PDK Validate
@@ -84,3 +87,8 @@ jobs:
         with:
           name: puppet-module-pkg
           path: pkg/*.tar.gz
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: pkg/*.tar.gz
+          generate_release_notes: true
