@@ -33,7 +33,7 @@ This fork (3.0.0+) modernises the module for Puppet 8.x / OpenVox 8.x compatibil
 | `sudoers` | `Hash` | `{}` | Hash of sudoers entries, created via `sudo::sudoers`. |
 | `manage_sudoersd` | `Boolean` | `false` | Purge unmanaged files from `/etc/sudoers.d/`. |
 | `manage_package` | `Boolean` | `true` | Whether to manage the `sudo` package. |
-| `sudoers_file` | `String` | `''` | A `puppet:///` source to install as `/etc/sudoers`. |
+| `sudoers_file` | `Optional[String]` | `undef` | A `puppet:///` source to install as `/etc/sudoers`. |
 
 ## Defined Type: `sudo::sudoers`
 
@@ -97,13 +97,22 @@ classes:
 
 ```sh
 bundle install
-bundle exec rake test
+bundle exec rake syntax lint spec
+```
+
+### Using PDK
+
+```sh
+pdk validate
+pdk test unit
 ```
 
 ### CI
 
 This module uses [GitHub Actions](.github/workflows/ci.yml) for automated
-lint, syntax, unit tests, and a smoke test using OpenVox 8.
+metadata validation, syntax checking, puppet-lint, rubocop, and unit tests.
+On version tags (`v*`), a module package is built and published as a
+GitHub Release.
 
 ## Contributors
 
