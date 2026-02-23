@@ -1,4 +1,4 @@
-# marckri-sudo
+# puppet-sudo
 
 Manage sudo and individual sudoers entries via `/etc/sudoers.d/`.
 
