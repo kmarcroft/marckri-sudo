@@ -3,6 +3,7 @@ name: CI
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
     branches: [main]
 
@@ -64,3 +65,22 @@ jobs:
           export PATH="/opt/puppetlabs/bin:$PATH"
           ln -s "$GITHUB_WORKSPACE" "$GITHUB_WORKSPACE/../sudo"
           puppet apply --noop --modulepath="$GITHUB_WORKSPACE/.." tests/init.pp
+
+  build:
+    name: Build Module Package
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [unit, smoke]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Build module
+        run: bundle exec rake build
+      - name: Upload package
+        uses: actions/upload-artifact@v4
+        with:
+          name: puppet-module-pkg
+          path: pkg/*.tar.gz
